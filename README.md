@@ -12,5 +12,3 @@ A tool for comparing MS spectra using Sinkhorn algorithm [1]. Auxiliary package 
 
 # References
 [1] Chizat, L., Peyré, G., Schmitzer, B., & Vialard, F.-X. (2018). Scaling algorithms for unbalanced optimal transport problems. Mathematics of Computation, 87(314), 2563–2609.
-
-[2] Bond NJ, Koulman A, Griffin JL, Hall Z. massPix: an R package for annotation and interpretation of mass spectrometry imaging data for lipidomics. Metabolomics. 2017;13(11) 128.
