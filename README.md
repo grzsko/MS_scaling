@@ -1,14 +1,19 @@
-MS_scaling - Optimal Transport Scaling algorithms for Mass Spectrometry
-=======================================================================
+MassSinkhornmetry - Optimal Transport Scaling algorithms for Mass Spectrometry
+==============================================================================
 
-A tool for comparing MS spectra using Sinkhorn algorithm [1]. Auxiliary package for the other applications.
+A tool for comparing MS spectra using Sinkhorn algorithm [1]. This package is a base for the other applications, like [Alignstein](https://github.com/grzsko/Alignstein).
 
 # Installation
-
-1. Obtain masserstein package: https://github.com/mciach/masserstein and build it in your python
- env.
-2. Obtain [eigen library](eigen.tuxfamily.org) and build it under MasSpOT/eigen.
-3. Run: python setup.py install.
+1. Compile everything:
+```bash
+cd MassSinkhornmetry
+make
+```
+2. Run setup.py install:
+```bash
+cd ..
+python setup.py install
+```
 
 # References
 [1] Chizat, L., Peyré, G., Schmitzer, B., & Vialard, F.-X. (2018). Scaling algorithms for unbalanced optimal transport problems. Mathematics of Computation, 87(314), 2563–2609.
