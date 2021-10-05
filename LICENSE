@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2021 GS
+Copyright (c) 2021 Grzegorz Skoraczynski
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+The library Eigen, contained in the directory include/eigen, is MLP2 licensed
+and shared under MLP2 license. Some fragments of the Eigen library contain LGPL
+or BSD licenced code. The authors of the MassSinkhornmetry project assured that
+these fragments are not used in MassSinkhornmetry, so any other licences are
+not applicable.
