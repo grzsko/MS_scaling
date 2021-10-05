@@ -165,7 +165,8 @@ double calc_distance_dense(std::vector<double>& mzs1,
                             lambda);
 }
 
-std::vector<std::tuple<int, int, double>> calc_steps_dense(
+MatrixXd  calc_moves_dense(
+// std::vector<std::tuple<int, int, double>> calc_steps_dense(
     std::vector<double>& mzs1, std::vector<double>& ints1,
     std::vector<double>& mzs2, std::vector<double>& ints2, double lambda,
     double epsilon, double tol, double threshold, int max_iter,
@@ -183,7 +184,8 @@ std::vector<std::tuple<int, int, double>> calc_steps_dense(
       calc_transport_plan(ints1_map, ints2_map, dists, lambda, epsilon, tol,
                           threshold, max_iter, method);
 
-  return steps_from_plan(transport_plan);
+  return transport_plan;
+  // return steps_from_plan(transport_plan);
 }
 
 double calc_distance_dense(std::vector<double>& ints1,
@@ -205,7 +207,8 @@ double calc_distance_dense(std::vector<double>& ints1,
                             lambda);
 }
 
-std::vector<std::tuple<int, int, double>> calc_steps_dense(
+MatrixXd calc_moves_dense(
+// std::vector<std::tuple<int, int, double>> calc_steps_dense(
     std::vector<double>& ints1, std::vector<double>& ints2, MatrixXd dists,
     double lambda, double epsilon, double tol, double threshold, int max_iter,
     const std::string method) {
@@ -219,5 +222,6 @@ std::vector<std::tuple<int, int, double>> calc_steps_dense(
       calc_transport_plan(ints1_map, ints2_map, dists, lambda, epsilon, tol,
                           threshold, max_iter, method);
 
-  return steps_from_plan(transport_plan);
+  // return steps_from_plan(transport_plan);
+  return transport_plan;
 }

@@ -28,38 +28,28 @@
 #         yield mzs1[id_left], mzs2[id_right], transport
 #
 
-from .optimal_transport_dense import calc_distance_dense, calc_steps_dense
+from .optimal_transport_dense import calc_distance_dense, calc_moves_dense
 
-# For test and legacy reasons
-def spectral_distance_dense(m1, m2, dists=None, lam=1, eps=0.1, tol=1e-05,
-                            threshold=1e+02, max_iter=500, method="TV"):
-    if dists is not None:
-        res = calc_distance_dense(m1, m2, dists, lam, eps, tol,
-                                  threshold, max_iter, method)
-    else:
-        mzs1, ints1 = zip(*[x for x in m1.confs if x[1] > 0])
-        mzs2, ints2 = zip(*[x for x in m2.confs if x[1] > 0])
-
-        res = calc_distance_dense(mzs1, ints1, mzs2, ints2, lam, eps, tol,
-                                  threshold, max_iter, method)
-
-    return res
-
-def spectral_distance_moves_dense(spec1, spec2, dists=None, lam=1, eps=0.1, tol=1e-05,
-                                  threshold=100, max_iter=500, method="TV"):
-
-    mzs1, ints1 = zip(*[x for x in spec1.confs if x[1] > 0])
-    mzs2, ints2 = zip(*[x for x in spec2.confs if x[1] > 0])
+def distance_dense(ints1, ints2, mzs1=None, mzs2=None, dists=None, lam=1,
+                   eps=0.1, tol=1e-05, threshold=1e+02, max_iter=500,
+                   method="TV"):
 
     if dists is not None:
-        res = calc_steps_dense(ints1, ints2, dists, lam, eps, tol, threshold,
+        return calc_distance_dense(m1, m2, dists, lam, eps, tol, threshold,
+                                   max_iter, method)
+    elif mzs1 is not None and mzs2 is not None:
+        return calc_distance_dense(mzs1, ints1, mzs2, ints2, lam, eps, tol,
+                                   threshold, max_iter, method)
+
+    raise ValueError("Either mzs1 and mzs2 or dists must be not None.")
+
+def distance_moves_dense(ints1, ints2, mzs1=None, mzs2=None, dists=None, lam=1,
+                         eps=0.1, tol=1e-05, threshold=100, max_iter=500,
+                         method="TV"):
+
+    if dists is not None:
+        return calc_moves_dense(ints1, ints2, dists, lam, eps, tol, threshold,
                                max_iter, method)
-    else:
-        res = calc_steps_dense(mzs1, ints1, mzs2, ints2, lam, eps, tol,
-                               threshold, max_iter, method)
-
-    # TODO XXX remove these moves and return pure tp or something simpler
-    # (sparse tp)
-    # TODO XXX make interface same with distance
-    for id_left, id_right, transport in res:
-        yield mzs1[id_left], mzs2[id_right], transport
+    elif mzs1 is not None and mzs2 is not None:
+        return calc_moves_dense(mzs1, ints1, mzs2, ints2, lam, eps, tol,
+                                threshold, max_iter, method)

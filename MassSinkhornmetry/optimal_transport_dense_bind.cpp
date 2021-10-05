@@ -16,16 +16,15 @@ PYBIND11_MODULE(optimal_transport_dense, m) {
                                Eigen::MatrixXd, double, double, double, double,
                                int, const std::string)>(&calc_distance_dense),
         "Distance dense implementation.");
-  m.def("calc_steps_dense",
-        static_cast<std::vector<std::tuple<int, int, double>> (*)(
+  m.def("calc_moves_dense",
+        static_cast<Eigen::MatrixXd (*)(
             std::vector<double> &, std::vector<double> &, std::vector<double> &,
             std::vector<double> &, double, double, double, double, int,
-            const std::string)>(&calc_steps_dense),
+            const std::string)>(&calc_moves_dense),
         "Transport plan dense implementation.");
-  m.def(
-      "calc_steps_dense",
-      static_cast<std::vector<std::tuple<int, int, double>> (*)(
+  m.def("calc_moves_dense",
+        static_cast<Eigen::MatrixXd (*)(
           std::vector<double> &, std::vector<double> &, Eigen::MatrixXd, double,
-          double, double, double, int, const std::string)>(&calc_steps_dense),
+          double, double, double, int, const std::string)>(&calc_moves_dense),
       "Transport plan dense implementation.");
 }

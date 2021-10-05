@@ -17,10 +17,7 @@
  */
 #ifndef optimal_transport_h__
 #define optimal_transport_h__
-// extern "C" {
-//     double calc_distance_c(double*, double*, int, double*, double*, int,
-//             double, double, double, double, int, double);
-// }
+
 #include <vector>
 #include <tuple>
 double calc_distance(std::vector<double> & mzs1, std::vector<double> & ints1, std::vector<double> & mzs2,
