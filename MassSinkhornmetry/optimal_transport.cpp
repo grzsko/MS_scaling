@@ -205,7 +205,7 @@ double calc_distance(std::vector<double> & mzs1, std::vector<double> & ints1, st
     return distance;
 }
 
-std::vector<std::tuple<int, int, double>> calc_steps(std::vector<double> & mzs1, std::vector<double> & ints1, std::vector<double> & mzs2,
+std::vector<std::tuple<int, int, double>> calc_moves(std::vector<double> & mzs1, std::vector<double> & ints1, std::vector<double> & mzs2,
                          std::vector<double> & ints2, double lambda,
                          double epsilon, double tol, double threshold,
                          int max_iter, double dist_upper_bound) {
@@ -220,13 +220,13 @@ std::vector<std::tuple<int, int, double>> calc_steps(std::vector<double> & mzs1,
             dist_upper_bound);
     SparseM transport_plan = calc_transport_plan(ints1_map, ints2_map, mzs1_map,
             mzs2_map, dists, lambda, epsilon, tol, threshold, max_iter);
-	std::vector<std::tuple<int, int, double>> steps;
+	std::vector<std::tuple<int, int, double>> moves;
 	for (int k = 0; k < transport_plan.outerSize(); ++k) {
 		for (SparseMatrix<double>::InnerIterator it(transport_plan, k); it; ++it) {
             std::tuple <int, int, double> step(it.row(), it.col(), it.value());
-            steps.push_back(step);
+            moves.push_back(step);
 		}
 	}
-    return steps;
+    return moves;
 }
 

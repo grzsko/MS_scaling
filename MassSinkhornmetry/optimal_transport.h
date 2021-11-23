@@ -25,7 +25,7 @@ double calc_distance(std::vector<double> & mzs1, std::vector<double> & ints1, st
                          double epsilon, double tol, double threshold,
                          int max_iter, double dist_upper_bound);
 
-std::vector<std::tuple<int, int, double>> calc_steps(std::vector<double> & mzs1, std::vector<double> & ints1, std::vector<double> & mzs2,
+std::vector<std::tuple<int, int, double>> calc_moves(std::vector<double> & mzs1, std::vector<double> & ints1, std::vector<double> & mzs2,
                          std::vector<double> & ints2, double lambda,
                          double epsilon, double tol, double threshold,
                          int max_iter, double dist_upper_bound);
