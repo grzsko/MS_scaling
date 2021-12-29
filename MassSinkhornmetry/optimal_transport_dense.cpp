@@ -128,19 +128,19 @@ double distance_from_plan(MatrixXd transport_plan, MatrixXd distances,
   return transport + trash;
 }
 
-std::vector<std::tuple<int, int, double>> steps_from_plan(
-    MatrixXd transport_plan) {
-  std::vector<std::tuple<int, int, double>> steps;
-  for (int i = 0; i < transport_plan.cols(); i++) {
-    for (int j = 0; j < transport_plan.rows(); j++) {
-      double value = transport_plan(j, i);
-      if (value > 0) {
-        steps.push_back(std::tuple<int, int, double>{j, i, value});
-      }
-    }
-  }
-  return steps;
-}
+// std::vector<std::tuple<int, int, double>> steps_from_plan(
+//     MatrixXd transport_plan) {
+//   std::vector<std::tuple<int, int, double>> steps;
+//   for (int i = 0; i < transport_plan.cols(); i++) {
+//     for (int j = 0; j < transport_plan.rows(); j++) {
+//       double value = transport_plan(j, i);
+//       if (value > 0) {
+//         steps.push_back(std::tuple<int, int, double>{j, i, value});
+//       }
+//     }
+//   }
+//   return steps;
+// }
 
 double calc_distance_dense(std::vector<double>& mzs1,
                            std::vector<double>& ints1,
