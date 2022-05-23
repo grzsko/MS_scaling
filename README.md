@@ -17,10 +17,6 @@ python setup.py install
 # Usage
 TODO
 
-# List of TODOs:
-1. Bundle this package into conda and pip.
-2. Increase readability by writing docs.
-
 # Further development
 Feature requests or pull-requests are always welcome!
 
