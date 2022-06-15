@@ -10,7 +10,6 @@ pip install -r requirements.txt
 ```
 2. Run setup.py install:
 ```bash
-cd ..
 python setup.py install
 ```
 
