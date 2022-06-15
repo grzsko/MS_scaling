@@ -14,9 +14,6 @@ cd ..
 python setup.py install
 ```
 
-# Usage
-TODO
-
 # Further development
 Feature requests or pull-requests are always welcome!
 
